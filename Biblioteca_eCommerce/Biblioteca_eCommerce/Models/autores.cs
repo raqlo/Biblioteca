@@ -9,6 +9,7 @@ namespace Biblioteca_eCommerce.Models
 {
     public class autores
     {
+       // forPulll
         public autores()
         {
             this.Libro = new HashSet<Libro>();
