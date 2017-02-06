@@ -146,13 +146,28 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\autoresController.cs" />
+    <Compile Include="Controllers\BibliografiasController.cs" />
+    <Compile Include="Controllers\EditorasController.cs" />
+    <Compile Include="Controllers\EmpleadoesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IdiomasController.cs" />
+    <Compile Include="Controllers\LibroesController.cs" />
+    <Compile Include="Controllers\PrestamoesController.cs" />
+    <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\autores.cs" />
-    <Compile Include="Models\BibliotecaContext.cs" />
+    <Compile Include="Models\Bibliografia.cs" />
+    <Compile Include="Models\BibliotecaDbContext.cs" />
+    <Compile Include="Models\Editora.cs" />
+    <Compile Include="Models\Empleado.cs" />
+    <Compile Include="Models\Idioma.cs" />
+    <Compile Include="Models\Libro.cs" />
+    <Compile Include="Models\Prestamo.cs" />
+    <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -338,9 +353,50 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Shared\_adminLayout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\autores\Create.cshtml" />
+    <Content Include="Views\autores\Delete.cshtml" />
+    <Content Include="Views\autores\Details.cshtml" />
+    <Content Include="Views\autores\Edit.cshtml" />
+    <Content Include="Views\autores\Index.cshtml" />
+    <Content Include="Views\Bibliografias\Create.cshtml" />
+    <Content Include="Views\Bibliografias\Delete.cshtml" />
+    <Content Include="Views\Bibliografias\Details.cshtml" />
+    <Content Include="Views\Bibliografias\Edit.cshtml" />
+    <Content Include="Views\Bibliografias\Index.cshtml" />
+    <Content Include="Views\Editoras\Create.cshtml" />
+    <Content Include="Views\Editoras\Delete.cshtml" />
+    <Content Include="Views\Editoras\Details.cshtml" />
+    <Content Include="Views\Editoras\Edit.cshtml" />
+    <Content Include="Views\Editoras\Index.cshtml" />
+    <Content Include="Views\Idiomas\Create.cshtml" />
+    <Content Include="Views\Idiomas\Delete.cshtml" />
+    <Content Include="Views\Idiomas\Details.cshtml" />
+    <Content Include="Views\Idiomas\Edit.cshtml" />
+    <Content Include="Views\Idiomas\Index.cshtml" />
+    <Content Include="Views\Usuarios\Create.cshtml" />
+    <Content Include="Views\Usuarios\Delete.cshtml" />
+    <Content Include="Views\Usuarios\Details.cshtml" />
+    <Content Include="Views\Usuarios\Edit.cshtml" />
+    <Content Include="Views\Usuarios\Index.cshtml" />
+    <Content Include="Views\Empleadoes\Create.cshtml" />
+    <Content Include="Views\Empleadoes\Delete.cshtml" />
+    <Content Include="Views\Empleadoes\Details.cshtml" />
+    <Content Include="Views\Empleadoes\Edit.cshtml" />
+    <Content Include="Views\Empleadoes\Index.cshtml" />
+    <Content Include="Views\Prestamoes\Create.cshtml" />
+    <Content Include="Views\Prestamoes\Delete.cshtml" />
+    <Content Include="Views\Prestamoes\Details.cshtml" />
+    <Content Include="Views\Prestamoes\Edit.cshtml" />
+    <Content Include="Views\Prestamoes\Index.cshtml" />
+    <Content Include="Views\Libroes\Create.cshtml" />
+    <Content Include="Views\Libroes\Delete.cshtml" />
+    <Content Include="Views\Libroes\Details.cshtml" />
+    <Content Include="Views\Libroes\Edit.cshtml" />
+    <Content Include="Views\Libroes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Autor\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

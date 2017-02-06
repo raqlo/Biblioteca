@@ -5,15 +5,14 @@ namespace Biblioteca_eCommerce.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Biblioteca_eCommerce.Models.BibliotecaContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<Biblioteca_eCommerce.Models.BibliotecaDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            
         }
 
-        protected override void Seed(Biblioteca_eCommerce.Models.BibliotecaContext context)
+        protected override void Seed(Biblioteca_eCommerce.Models.BibliotecaDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 

@@ -7,17 +7,15 @@ using System.Web;
 
 namespace Biblioteca_eCommerce.Models
 {
-    public class autores
+    public class Bibliografia
     {
-        public autores()
+        public Bibliografia()
         {
             this.Libro = new HashSet<Libro>();
         }
         [Key]
-        public int IdAutor { get; set; }
-        public string Nombre { get; set; }
-        public string Pais { get; set; }
-        public string Idioma { get; set; }
+        public int IdBibliografia { get; set; }
+        public string Descripcion { get; set; }
         public int Estado { get; set; }
 
         public virtual ICollection<Libro> Libro { get; set; }
