@@ -383,16 +383,16 @@
     <Content Include="Views\Empleadoes\Details.cshtml" />
     <Content Include="Views\Empleadoes\Edit.cshtml" />
     <Content Include="Views\Empleadoes\Index.cshtml" />
-    <Content Include="Views\Prestamoes\Create.cshtml" />
-    <Content Include="Views\Prestamoes\Delete.cshtml" />
-    <Content Include="Views\Prestamoes\Details.cshtml" />
-    <Content Include="Views\Prestamoes\Edit.cshtml" />
-    <Content Include="Views\Prestamoes\Index.cshtml" />
     <Content Include="Views\Libroes\Create.cshtml" />
     <Content Include="Views\Libroes\Delete.cshtml" />
     <Content Include="Views\Libroes\Details.cshtml" />
     <Content Include="Views\Libroes\Edit.cshtml" />
     <Content Include="Views\Libroes\Index.cshtml" />
+    <Content Include="Views\Prestamoes\Create.cshtml" />
+    <Content Include="Views\Prestamoes\Delete.cshtml" />
+    <Content Include="Views\Prestamoes\Details.cshtml" />
+    <Content Include="Views\Prestamoes\Edit.cshtml" />
+    <Content Include="Views\Prestamoes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

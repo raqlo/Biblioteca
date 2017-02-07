@@ -10,13 +10,16 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">   
+<table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.autores.Nombre)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Bibliografia.Descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Editora.Descripcion)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Nombre)
@@ -34,7 +37,7 @@
             @Html.DisplayNameFor(model => model.Ciencia)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Idioma)
+            @Html.DisplayNameFor(model => model.IdIdioma)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.estado)
@@ -49,6 +52,9 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Bibliografia.Descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Editora.Descripcion)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Nombre)
@@ -66,7 +72,7 @@
             @Html.DisplayFor(modelItem => item.Ciencia)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Idioma)
+            @Html.DisplayFor(modelItem => item.IdIdioma)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.estado)

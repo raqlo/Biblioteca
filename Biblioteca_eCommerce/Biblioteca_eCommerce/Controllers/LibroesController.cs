@@ -17,7 +17,7 @@ namespace Biblioteca_eCommerce.Controllers
         // GET: Libroes
         public ActionResult Index()
         {
-            var libros = db.Libros.Include(l => l.autores).Include(l => l.Bibliografia);
+            var libros = db.Libros.Include(l => l.autores).Include(l => l.Bibliografia).Include(l => l.Editora);
             return View(libros.ToList());
         }
 
@@ -41,6 +41,7 @@ namespace Biblioteca_eCommerce.Controllers
         {
             ViewBag.IdAutor = new SelectList(db.autor, "IdAutor", "Nombre");
             ViewBag.IdBibliografia = new SelectList(db.Bibliografias, "IdBibliografia", "Descripcion");
+            ViewBag.IdEditoras = new SelectList(db.Editoras, "IdEditoras", "Descripcion");
             return View();
         }
 
@@ -49,7 +50,7 @@ namespace Biblioteca_eCommerce.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IdLibro,Nombre,SignatureTopography,ISBN,IdBibliografia,IdAutor,YearPublish,Ciencia,Idioma,estado")] Libro libro)
+        public ActionResult Create([Bind(Include = "IdLibro,Nombre,SignatureTopography,ISBN,IdBibliografia,IdAutor,YearPublish,IdEditoras,Ciencia,IdIdioma,estado")] Libro libro)
         {
             if (ModelState.IsValid)
             {
@@ -60,6 +61,7 @@ namespace Biblioteca_eCommerce.Controllers
 
             ViewBag.IdAutor = new SelectList(db.autor, "IdAutor", "Nombre", libro.IdAutor);
             ViewBag.IdBibliografia = new SelectList(db.Bibliografias, "IdBibliografia", "Descripcion", libro.IdBibliografia);
+            ViewBag.IdEditoras = new SelectList(db.Editoras, "IdEditoras", "Descripcion", libro.IdEditoras);
             return View(libro);
         }
 
@@ -77,6 +79,7 @@ namespace Biblioteca_eCommerce.Controllers
             }
             ViewBag.IdAutor = new SelectList(db.autor, "IdAutor", "Nombre", libro.IdAutor);
             ViewBag.IdBibliografia = new SelectList(db.Bibliografias, "IdBibliografia", "Descripcion", libro.IdBibliografia);
+            ViewBag.IdEditoras = new SelectList(db.Editoras, "IdEditoras", "Descripcion", libro.IdEditoras);
             return View(libro);
         }
 
@@ -85,7 +88,7 @@ namespace Biblioteca_eCommerce.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IdLibro,Nombre,SignatureTopography,ISBN,IdBibliografia,IdAutor,YearPublish,Ciencia,Idioma,estado")] Libro libro)
+        public ActionResult Edit([Bind(Include = "IdLibro,Nombre,SignatureTopography,ISBN,IdBibliografia,IdAutor,YearPublish,IdEditoras,Ciencia,IdIdioma,estado")] Libro libro)
         {
             if (ModelState.IsValid)
             {
@@ -95,6 +98,7 @@ namespace Biblioteca_eCommerce.Controllers
             }
             ViewBag.IdAutor = new SelectList(db.autor, "IdAutor", "Nombre", libro.IdAutor);
             ViewBag.IdBibliografia = new SelectList(db.Bibliografias, "IdBibliografia", "Descripcion", libro.IdBibliografia);
+            ViewBag.IdEditoras = new SelectList(db.Editoras, "IdEditoras", "Descripcion", libro.IdEditoras);
             return View(libro);
         }
 

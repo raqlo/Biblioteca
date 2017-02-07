@@ -8,6 +8,11 @@ namespace Biblioteca_eCommerce.Models
 {
     public class Empleado
     {
+        public Empleado()
+        {
+            this.Prestamo = new HashSet<Prestamo>();
+        }
+
         [Key]
         public int IdEmpleado { get; set; }
         public string Nombre { get; set; }
@@ -16,5 +21,7 @@ namespace Biblioteca_eCommerce.Models
         [DataType(DataType.Date)]
         public DateTime FechaIngreso { get; set; }
         public  int Estado { get; set; }
+
+        public virtual ICollection<Prestamo> Prestamo { get; set; }
     }
 }   

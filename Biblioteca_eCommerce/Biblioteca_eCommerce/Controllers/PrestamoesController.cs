@@ -17,7 +17,8 @@ namespace Biblioteca_eCommerce.Controllers
         // GET: Prestamoes
         public ActionResult Index()
         {
-            return View(db.Prestamos.ToList());
+            var prestm = db.Prestamos.Include(l => l.Usuario).Include(l => l.Empleado).Include(l => l.Libro);
+            return View(prestm.ToList());
         }
 
         // GET: Prestamoes/Details/5
@@ -38,6 +39,9 @@ namespace Biblioteca_eCommerce.Controllers
         // GET: Prestamoes/Create
         public ActionResult Create()
         {
+            ViewBag.IdEmpleado = new SelectList(db.Empleados, "IdEmpleado", "Nombre");
+            ViewBag.IdLibro = new SelectList(db.Libros, "IdLibro", "Nombre");
+            ViewBag.IdUsuarios = new SelectList(db.Usuarios, "IdUsuarios", "Nombre");
             return View();
         }
 
@@ -46,7 +50,7 @@ namespace Biblioteca_eCommerce.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IdPrestamo,Empleado,Libro,Usuario,FechaPrest,FechaDevol,MontoxDia,cantDias,Comentario,estado")] Prestamo prestamo)
+        public ActionResult Create([Bind(Include = "IdPrestamo,IdEmpleado,IdLibro,IdUsuarios,FechaPrest,FechaDevol,MontoxDia,cantDias,Comentario,estado")] Prestamo prestamo)
         {
             if (ModelState.IsValid)
             {
@@ -54,7 +58,9 @@ namespace Biblioteca_eCommerce.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            ViewBag.IdEmpleado = new SelectList(db.Empleados, "IdEmpleado", "Nombre");
+            ViewBag.IdLibro = new SelectList(db.Libros, "IdLibro", "Nombre");
+            ViewBag.IdUsuarios = new SelectList(db.Usuarios, "IdUsuarios", "Nombre");
             return View(prestamo);
         }
 
@@ -70,6 +76,9 @@ namespace Biblioteca_eCommerce.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.IdEmpleado = new SelectList(db.Empleados, "IdEmpleado", "Nombre");
+            ViewBag.IdLibro = new SelectList(db.Libros, "IdLibro", "Nombre");
+            ViewBag.IdUsuarios = new SelectList(db.Usuarios, "IdUsuarios", "Nombre");
             return View(prestamo);
         }
 
@@ -78,7 +87,7 @@ namespace Biblioteca_eCommerce.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IdPrestamo,Empleado,Libro,Usuario,FechaPrest,FechaDevol,MontoxDia,cantDias,Comentario,estado")] Prestamo prestamo)
+        public ActionResult Edit([Bind(Include = "IdPrestamo,IdEmpleado,IdLibro,IdUsuarios,FechaPrest,FechaDevol,MontoxDia,cantDias,Comentario,estado")] Prestamo prestamo)
         {
             if (ModelState.IsValid)
             {
@@ -86,6 +95,9 @@ namespace Biblioteca_eCommerce.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.IdEmpleado = new SelectList(db.Empleados, "IdEmpleado", "Nombre");
+            ViewBag.IdLibro = new SelectList(db.Libros, "IdLibro", "Nombre");
+            ViewBag.IdUsuarios = new SelectList(db.Usuarios, "IdUsuarios", "Nombre");
             return View(prestamo);
         }
 
