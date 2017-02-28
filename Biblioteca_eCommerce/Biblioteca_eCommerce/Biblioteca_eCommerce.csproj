@@ -173,6 +173,7 @@
   <ItemGroup>
     <Content Include="Content\AdminTemplate\data\flot-data.js" />
     <Content Include="Content\AdminTemplate\data\morris-data.js" />
+    <Content Include="Content\AdminTemplate\dist\css\custom-admin.css" />
     <Content Include="Content\AdminTemplate\dist\css\sb-admin-2.css" />
     <Content Include="Content\AdminTemplate\dist\css\sb-admin-2.min.css" />
     <Content Include="Content\AdminTemplate\dist\js\sb-admin-2.js" />
