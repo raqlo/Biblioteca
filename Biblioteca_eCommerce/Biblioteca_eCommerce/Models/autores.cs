@@ -14,6 +14,7 @@ namespace Biblioteca_eCommerce.Models
         {
             this.Libro = new HashSet<Libro>();
         }
+        //Epilepsia, epilepsia
         [Key]
         public int IdAutor { get; set; }
         public string Nombre { get; set; }
