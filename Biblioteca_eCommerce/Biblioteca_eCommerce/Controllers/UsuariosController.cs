@@ -17,7 +17,10 @@ namespace Biblioteca_eCommerce.Controllers
         // GET: Usuarios
         public ActionResult Index()
         {
-            return View(db.Usuarios.ToList());
+            using (BibliotecaDbContext db = new BibliotecaDbContext())
+            {
+                return View(db.Usuarios.ToList());
+            }
         }
 
         // GET: Usuarios/Details/5
@@ -122,6 +125,74 @@ namespace Biblioteca_eCommerce.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        // Registro
+
+        public ActionResult registroUsuarios()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult registroUsuarios(Usuario account)
+        {
+            if (ModelState.IsValid)
+            {
+                using (BibliotecaDbContext db = new BibliotecaDbContext())
+                {
+                    db.Usuarios.Add(account);
+                    db.SaveChanges();
+                }
+                ModelState.Clear();
+                ViewBag.Message = account.Nombre + " " + account.Apellido + " "+ "ha sido registrado exitosamente";
+            }
+            return View();
+        }
+
+        // Login
+
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Login(Usuario usuario)
+        {
+            using (BibliotecaDbContext db = new BibliotecaDbContext())
+            {
+               var usr = db.Usuarios.Where(u => u.Matricula == usuario.Matricula && u.Password == usuario.Password).FirstOrDefault();
+                if (usr != null)
+                {
+                    Session["IdUsuario"] = usr.IdUsuarios.ToString();
+                    Session["Matricula"] = usr.Matricula.ToString();
+                    return RedirectToAction("LoggedIn");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Matricula o Contraseña erronea.");
+                }
+            }
+            return View();    
+      }
+       public ActionResult LoggedIn()
+       {
+            if (Session["IdUsuario"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login");
+            }
+       }
+
+        public ActionResult Logout()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToAction("Index");
+
         }
     }
 }
